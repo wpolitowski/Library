@@ -22,17 +22,16 @@ addBookBtn.addEventListener('submit', (event) => {
 
 function clearInputFields() {
     formFields.forEach( form => {
-        if (form[type="checkbox"]) form.checked = false;
+        if (form.type === 'checkbox') form.checked = false;
         else form.value = "";
     });
 }
 
 
-function Book(title, author, pages, comment, read) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.comment = comment;
     this.read = read;  
 }
 
@@ -41,13 +40,34 @@ function addBookToLibrary() {
         formFields[0].value,
         formFields[1].value,
         formFields[2].value,
-        formFields[3].value,
-        formFields[4].checked
+        formFields[3].checked
     );
 
     myLibrary.push(newBook);
+    displayBook(newBook);
 }
 
-function displayBook() {
+function displayBook(book) {
+    const booksContainer = document.querySelector('.books-container');
+    const newBookDiv = document.createElement('div.book');
+    const bookTitle = document.createElement('div');
+    const bookAuthor = document.createElement('div');
+    const bookPages = document.createElement('div');
+    const bookRead = document.createElement('div');
 
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = `By: ${book.author}`;
+    bookPages.textContent = book.pages ? `Number of pages: ${book.pages}` : '';
+    bookRead.textContent = book.read ? 'Read' : 'Not read';
+
+    newBookDiv.append(bookTitle, bookAuthor, bookPages, bookRead);
+    booksContainer.appendChild(newBookDiv);
+}
+
+function deleteBook() {
+
+}
+
+function toggleReadStatus() {
+    
 }

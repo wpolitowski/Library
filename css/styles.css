@@ -19,7 +19,7 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    /* visibility: hidden; */
+
     display: none;
     background-color: rgba(0,0,0, .8);
 
@@ -27,12 +27,14 @@ ul {
 
 .overlay:target {
     display: block;
-    /* visibility: visible; */
 }
 
 .wrapper {
     width: 30%;
     margin: 15vh auto;
     background-color: rgb(201, 192, 192);
-    
+}
+
+input {
+    width: 200px;
 }

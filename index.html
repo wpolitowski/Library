@@ -32,14 +32,9 @@
                         <li>
                             <input type="number" name="num-pages" placeholder="Number of pages" min="1" max="11000">
                         </li>
-                        <!-- <li>
-                            <input type="text" name="rating" placeholder="Rating">
-                        </li> -->
                         <li>
-                            <textarea name="comment" cols="30" rows="10" placeholder="Your comment"></textarea>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="read-status" placeholder="Read?"> 
+                            <label for="read-status">Did you read this book?</label>
+                            <input type="checkbox" name="read-status" id="read-status" placeholder="Read?"> 
                         </li>
                     </ul>
     
@@ -48,7 +43,7 @@
             </div>
         </div>
 
-        
+        <div class="books-container"></div>        
     </main>
 
     <script src="./scripts/script.js"></script>
