@@ -19,13 +19,15 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
     background-color: rgba(0,0,0, .8);
 
 }
 
 .overlay:target {
-    visibility: visible;
+    display: block;
+    /* visibility: visible; */
 }
 
 .wrapper {
