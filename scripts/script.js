@@ -2,6 +2,7 @@ let myLibrary = [];
 // const addBookBtn = document.querySelector('button[type="submit"]');
 const addBookBtn = document.querySelector('form');
 const formFields = document.querySelectorAll('input, textarea');
+const booksContainer = document.querySelector('.books-container');
 
 
 addBookBtn.addEventListener('submit', (event) => {
@@ -48,8 +49,14 @@ function addBookToLibrary() {
 }
 
 function displayBook(book) {
-    const booksContainer = document.querySelector('.books-container');
-    const newBookDiv = document.createElement('div.book');
+    const newBookDiv = document.createElement('div');
+    const removeBtn = document.createElement('button');
+    newBookDiv.classList.add('book');
+    newBookDiv.dataset.bookNumber = myLibrary.length;
+    removeBtn.classList.add('remove-button');
+    removeBtn.addEventListener('click', removeBook);
+    
+
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
     const bookPages = document.createElement('div');
@@ -59,13 +66,23 @@ function displayBook(book) {
     bookAuthor.textContent = `By: ${book.author}`;
     bookPages.textContent = book.pages ? `Number of pages: ${book.pages}` : '';
     bookRead.textContent = book.read ? 'Read' : 'Not read';
+    removeBtn.textContent = "Remove";
 
-    newBookDiv.append(bookTitle, bookAuthor, bookPages, bookRead);
+    newBookDiv.append(bookTitle, bookAuthor, bookPages, bookRead, removeBtn);
     booksContainer.appendChild(newBookDiv);
 }
 
-function deleteBook() {
+function removeBook() {
+    const bookNumber = this.parentElement.dataset.bookNumber;
+    const removedBook = document.querySelector(`.book[data-book-number="${bookNumber}"]`);
 
+    booksContainer.removeChild(removedBook);
+    myLibrary.splice(bookNumber - 1, 1);
+
+    const remainingBooks = Array.from(document.querySelectorAll('.book'));
+    remainingBooks
+        .filter(book => book.dataset.bookNumber > bookNumber)
+        .map(book => book.dataset.bookNumber--);
 }
 
 function toggleReadStatus() {
