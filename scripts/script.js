@@ -60,12 +60,14 @@ function displayBook(book) {
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
     const bookPages = document.createElement('div');
-    const bookRead = document.createElement('div');
+    const bookRead = document.createElement('button');
+    bookRead.classList.add('not-read');
 
     bookTitle.textContent = book.title;
     bookAuthor.textContent = `By: ${book.author}`;
     bookPages.textContent = book.pages ? `Number of pages: ${book.pages}` : '';
-    bookRead.textContent = book.read ? 'Read' : 'Not read';
+    bookRead.textContent = book.read ? bookRead.classList.add('book-read') : '';
+    bookRead.addEventListener('click', toggleReadStatus);
     removeBtn.textContent = "Remove";
 
     newBookDiv.append(bookTitle, bookAuthor, bookPages, bookRead, removeBtn);
@@ -86,5 +88,7 @@ function removeBook() {
 }
 
 function toggleReadStatus() {
-    
+    const chosenBook = myLibrary[this.parentElement.dataset.bookNumber - 1];
+    this.classList.toggle('book-read');
+    chosenBook.read = !chosenBook.read;
 }

@@ -38,3 +38,23 @@ ul {
 input {
     width: 200px;
 }
+
+
+.not-read {
+    background-color: lightcoral;
+    /* display: relative; */
+}
+
+.not-read::after {
+    content: "Not read";
+    /* display: absolute; */
+
+}
+
+.book-read {
+    background-color: lightgreen;
+}
+
+.book-read::after {
+    content: "Read";
+}
