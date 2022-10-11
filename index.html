@@ -9,9 +9,11 @@
 </head>
 <body>
     <header>
-        <h1>Library</h1>
+        <div class="container">
+            <h1>Library</h1>
+        </div>
     </header>
-    <main>
+    <main class="container">
         <a href="#popup">
             Add a book
         </a>
@@ -33,8 +35,7 @@
                             <input type="number" name="num-pages" placeholder="Number of pages" min="1" max="11000">
                         </li>
                         <li>
-                            <label for="read-status">Did you read this book?</label>
-                            <input type="checkbox" name="read-status" id="read-status" placeholder="Read?"> 
+                            <input class="form-read-button" type="button" name="read-status" id="read-status" value="Not read"> 
                         </li>
                     </ul>
     

@@ -1,8 +1,9 @@
 let myLibrary = [];
 // const addBookBtn = document.querySelector('button[type="submit"]');
 const addBookBtn = document.querySelector('form');
-const formFields = document.querySelectorAll('input, textarea');
+const formFields = document.querySelectorAll('input');
 const booksContainer = document.querySelector('.books-container');
+const formReadButton = document.querySelector('.form-read-button');
 
 
 addBookBtn.addEventListener('submit', (event) => {
@@ -21,10 +22,15 @@ addBookBtn.addEventListener('submit', (event) => {
     
 });
 
+formReadButton.addEventListener('click', (e) => {
+    if(e.target.value === 'Not read') e.target.value = 'Read';
+    else e.target.value = 'Not read';
+});
+
 function clearInputFields() {
     formFields.forEach( form => {
-        if (form.type === 'checkbox') form.checked = false;
-        else form.value = "";
+        if (form.type === 'button') form.value = "Not read";
+        else form.value = "" 
     });
 }
 
@@ -41,7 +47,7 @@ function addBookToLibrary() {
         formFields[0].value,
         formFields[1].value,
         formFields[2].value,
-        formFields[3].checked
+        formFields[3].value
     );
 
     myLibrary.push(newBook);
@@ -66,7 +72,7 @@ function displayBook(book) {
     bookTitle.textContent = book.title;
     bookAuthor.textContent = `By: ${book.author}`;
     bookPages.textContent = book.pages ? `Number of pages: ${book.pages}` : '';
-    bookRead.textContent = book.read ? bookRead.classList.add('book-read') : '';
+    bookRead.textContent = book.read === 'Read' ? bookRead.classList.add('book-read') : '';
     bookRead.addEventListener('click', toggleReadStatus);
     removeBtn.textContent = "Remove";
 

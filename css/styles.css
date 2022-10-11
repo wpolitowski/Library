@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --jet: #353535ff;
+    --ming: #3c6e71ff;
+    --white: #fffafaff;
+    --gainsboro: #d9d9d9ff;
+    --indigo-dye: #284b63ff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,12 +15,28 @@
 
 body {
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: var(--jet);
+    background-color: var(--gainsboro);
 }
 
 ul {
     list-style: none;
 }
 
+header {
+    background-color: var(--white);
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.container {
+    max-width: 70vw;
+    margin: 0 auto;
+}
 
 
 .overlay {
@@ -30,13 +56,16 @@ ul {
 }
 
 .wrapper {
-    width: 30%;
+    width: 20%;
+    padding: 1rem;
     margin: 15vh auto;
     background-color: rgb(201, 192, 192);
 }
 
 input {
     width: 200px;
+    font-family: inherit;
+    font-size: 100%; 
 }
 
 
