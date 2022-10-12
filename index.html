@@ -14,15 +14,16 @@
         </div>
     </header>
     <main class="container">
-        <a href="#popup">
-            Add a book
+        <a class="add-a-book" href="#popup">
+            <img src="./images/plus_icon.svg" alt="Add icon">
         </a>
 
         <div class="overlay" id="popup">
-            <div class="wrapper">
-                <a class="close" href="#">&times;</a>
-                <h3>Add a new book</h3>
-                <!-- <form onsubmit="return false"> -->
+            <div class="wrapper">                
+                <div class="form-header">
+                    <h3>Add a new book</h3>
+                    <a class="close" href="#">&times;</a>
+                </div>
                 <form>
                     <ul>
                         <li>
@@ -39,7 +40,7 @@
                         </li>
                     </ul>
     
-                    <button type="submit">Submit</button>
+                    <button class="submit-button" type="submit">Submit</button>
                 </form>
             </div>
         </div>

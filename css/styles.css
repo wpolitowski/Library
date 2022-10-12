@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
-    --jet: #353535ff;
-    --ming: #3c6e71ff;
+    --black: #353535ff;
+    --teal: #3c6e71ff;
     --white: #fffafaff;
-    --gainsboro: #d9d9d9ff;
-    --indigo-dye: #284b63ff;
+    --gray: #d9d9d9ff;
+    --navy: #284b63ff;
+    --red: #fca5a5;
+    --green: #86efac;
+    --shadow: 0 8px 10px rgba(0,0,0, .15);
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    color: var(--jet);
-    background-color: var(--gainsboro);
+    color: var(--black);
+    background-color: var(--gray);
 }
 
 ul {
@@ -31,11 +35,38 @@ header {
 
 h1 {
     font-size: 3rem;
+    color: var(--navy);
+}
+
+header {
+    box-shadow: var(--shadow);
 }
 
 .container {
     max-width: 70vw;
     margin: 0 auto;
+}
+
+main.container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.add-a-book {
+    align-self: center;
+    margin: 2rem;
+    background-color: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    filter: drop-shadow(var(--shadow));
+}
+
+.add-a-book:visited {
+    color: var(--white);
 }
 
 
@@ -45,10 +76,8 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-
     display: none;
     background-color: rgba(0,0,0, .8);
-
 }
 
 .overlay:target {
@@ -57,20 +86,98 @@ h1 {
 
 .wrapper {
     width: 20%;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 15vh auto;
-    background-color: rgb(201, 192, 192);
+    background-color: var(--white);
+    border-radius: 10px;
 }
 
-input {
-    width: 200px;
+input, button {
+    width: 100%;
     font-family: inherit;
-    font-size: 100%; 
+    font-size: 100%;
+    border: none;
+    background-color: var(--gray);
+    border-radius: 5px;
+    height: 50px;
+    padding: .5rem 1rem; 
 }
 
+button, 
+input[type="button"] {
+    display: block;
+    cursor: pointer;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close, 
+.close:visited {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.close {
+    font-size: 2em;
+}
+
+form li {
+    margin: 1rem 0;
+}
+
+.form-read-button {
+    background-color: var(--red);
+}
+
+.form-read-button[value="Read"] {
+    background-color: var(--green);
+}
+
+.submit-button:hover,
+.remove-button:hover {
+    background-color: var(--navy);
+    color: var(--white);
+    font-weight: bold;
+}
+
+
+.books-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding-bottom: 2rem;
+}
+
+.book {
+    padding: 1.3rem;
+    background-color: var(--white);
+    display: grid;
+    gap: .3rem;
+    align-content: space-between;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.book > div:not([class]) {
+    height: 1.5rem;
+}
+
+.book button {
+    margin-top: 1rem;
+}
+
+.title {
+    font-style: italic;
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 .not-read {
-    background-color: lightcoral;
+    background-color: var(--red);
     /* display: relative; */
 }
 
@@ -81,7 +188,7 @@ input {
 }
 
 .book-read {
-    background-color: lightgreen;
+    background-color: var(--green);
 }
 
 .book-read::after {

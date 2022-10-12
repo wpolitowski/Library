@@ -18,8 +18,7 @@ addBookBtn.addEventListener('submit', (event) => {
         addBookToLibrary();
         window.location = "#";
         clearInputFields();
-    }
-    
+    }    
 });
 
 formReadButton.addEventListener('click', (e) => {
@@ -57,16 +56,18 @@ function addBookToLibrary() {
 function displayBook(book) {
     const newBookDiv = document.createElement('div');
     const removeBtn = document.createElement('button');
+    const buttons = document.createElement('div');
     newBookDiv.classList.add('book');
     newBookDiv.dataset.bookNumber = myLibrary.length;
     removeBtn.classList.add('remove-button');
     removeBtn.addEventListener('click', removeBook);
+    buttons.classList.add('buttons');
     
-
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
     const bookPages = document.createElement('div');
     const bookRead = document.createElement('button');
+    bookTitle.classList.add('title');
     bookRead.classList.add('not-read');
 
     bookTitle.textContent = book.title;
@@ -76,7 +77,8 @@ function displayBook(book) {
     bookRead.addEventListener('click', toggleReadStatus);
     removeBtn.textContent = "Remove";
 
-    newBookDiv.append(bookTitle, bookAuthor, bookPages, bookRead, removeBtn);
+    buttons.append(bookRead, removeBtn);
+    newBookDiv.append(bookTitle, bookAuthor, bookPages, buttons);
     booksContainer.appendChild(newBookDiv);
 }
 
